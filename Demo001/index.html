@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html ng-app="app">
+<head>
+<title>Angular Demo | Drew Prescott</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
+<link rel="stylesheet" href="css/custom.css">
+
+</head>
+<body>
+
+<div ng-controller="header">
+  <h3>Controller 1: Header</h3>
+  {{ title }}
+
+  <div ng-repeat="element in introductions | filter:{ value: true }" >
+    <p >
+      {{element.story}}
+      <span
+    </p>
+
+  </div>
+  <input ng-model="myData.val"></input>
+  <div ng-show="myData.toolong">{{myData.val}}</div>
+
+
+</div><br>
+<div ng-controller="body">
+  <h3>Controller 2: Body</h3>
+ {{body}}<br>
+  {{digit}} was clicked.
+<div class="bodyArea" ng-repeat="people in dataArr | filter:{happy: true}">
+  <p>
+    <span ng-click="makeHappy($index)">{{people.name}}<span>,
+      {{people.age}},
+      {{peple.happy}}
+  </p>
+</div>
+</div>
+<br><br>
+<div ng-controller="bodyTwo">
+  <h3>Controller 3: Body2</h3>
+ {{title}}
+  <p>{{num}}</p>
+  <p>{{nums}}</p>
+  <button ng-click="increment()">Increment</button>
+  <button ng-click="stopWatch()">Stop Watch</button>
+</div>
+
+<div ng-controller="bodyThree">
+  <h3>Controller 4: Filters</h3>
+  {{title}}<br>
+  <p><input ng-model="filter.str" placeholder="uppercase"></input>{{filter.str | uppercase}}</p>
+  <p><input ng-model="filter.date" placeholder="date"></input>{{filter.date | date}}</p>
+
+  <div class="left-1">
+  <input ng-model="cityFilter" placeholder="Filter by simple array"></input>
+  <div ng-repeat="place in location.city | filter:cityFilter">
+    {{place}}
+  </div>
+  </div>
+
+  <div class="left-1">
+  <input ng-model="myFam.age" placeholder="Filter by dynamic object"></input>
+  <div ng-repeat="person in family.people | filter:myFam">
+    {{person.name}}
+  </div>
+  </div>
+
+</div>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
