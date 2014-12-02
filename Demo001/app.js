@@ -52,6 +52,15 @@ app.controller('bodyThree', ['$scope', function($scope){
 
 }]);
 
+app.controller('services', function($scope,valService,conService){
+  $scope.valExample = valService();
+  $scope.conExample = conService.attr;
+});
+app.constant('conService', {attr: "This is an object of Constant"});
+app.value('valService', function(){return "This is the returned valued of a function value. This would be used more.";});
+
+app.constant('constData', {attr: "hi there!"});
+
 app.filter('charFilter', function(){
   return function(input, length){ //input is the name expected, length is the the paramenter of what's expected
     if (!length){
