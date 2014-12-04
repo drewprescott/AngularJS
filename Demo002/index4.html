@@ -1,0 +1,132 @@
+<!-- index2.html -->
+<!DOCTYPE html>
+<html ng-app="App">
+  <head>
+      
+    <title>My Angular App  -  4</title>
+      
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="app4.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="app4.js"></script>
+      
+  </head>
+  <body>
+      
+    <h4>Services | Filters | Scope/Watch</h4>
+      
+        <div class="title">      
+            <b>Updateing data across constant's, and not ng-model.</b>
+        </div> 
+      
+    <div ng-controller="cntrlOne" class="left">
+        
+    <input ng-model="test.test" placeholder="Enter Text Here"></input>
+      
+    <button ng-click="demo(test.test)">Enter</button>
+      
+    </div>
+      
+    <div ng-controller="cntrlTwo" class="left">
+        
+      <div>{{ending.attr}}</div>
+        
+    </div>
+    
+        <div class="title">     
+            
+            <b>Custom Filters, by Age, Name, etc..</b>
+            
+        </div> 
+    
+    <div ng-controller="cntrlThree" class="left">
+        
+        <div ng-repeat="people in dataArr | orderBy:'name'">
+            {{people.name | change}}
+        </div>
+        
+    </div>
+
+
+    <div class="left" ng-controller="cntrlFour">
+        <div ng-repeat="x in placeArr" class="left-cut">
+           <span ng-hide="toggle"> {{x.city}}, </span>{{x.state}} 
+
+        </div>
+        <div class="left-cut">
+            <button ng-click="toggleButton(false)">City</button>
+            <button ng-click="toggleButton(true)">Remove</button>
+        </div>
+    </div>
+    
+        <div class="title">
+    
+    </div>
+    
+    <div class='title'>
+        <b>Class Adjustments, Toggels, Scope Watch..</b>
+    </div>
+    
+    <div ng-controller="cntrlFive" class="left">
+        <span ng-class="'highlight'">Highlighted. Static</span>        
+        <span ng-class="toggleHighlighter">Highlighted. Scope</span><br><br>
+        <span ng-class="[toggleHighlighter, 'focus']">Highlight and Focus. Array</span>
+        <span ng-class="{focus: engage}" ng-click="makeTrue()">Focused. onClick.</span>
+    </div>
+    
+    <div ng-controller="cntrlSix" class='left'>
+        <div class="left-cut">
+            <button ng-click="incFunc()">Increase</button>
+        </div>
+        <div class="left-cut">
+                {{count}}
+             
+            <span ng-show="showAlert">
+                {{alert}}
+            </span>
+            
+                {{newVal}}
+        </div>
+
+    </div>
+    
+    <div class="title">
+        <b>ngTemplate, ngInclude | Factories</b>
+    </div>
+
+    <div class="left" ng-include="'temp.html'">
+        <!----Temaplate below in Template Area--->
+    </div>
+
+    <div class="left" ng-controller="cntrlEight">
+        <input ng-model="person.num" placeholder="1,2,or 3">
+        <button ng-click="getPerson(person.num)">Find Person</button>
+        {{person.num}} is {{test}}
+        <input ng-model="person.newName" placeholder="change name">
+        <button ng-click="changePersonName(person.num, person.newName); getPerson(person.num)">Change Name</button>
+    </div>
+    
+    <div class="title">
+        <b>Services, providers</b>
+    </div>
+    
+    <div class="left" ng-controller="cntrlNine">
+        {{name}}, {{age}}
+    </div>
+    <div class="left" ng-controller="cntrlTen">
+        {{test}}
+    </div>
+    
+    
+    
+    <!--Templates------>
+    <script type="text/ng-template" id="temp.html">
+    <div ng-controller="cntrlSeven">
+        <b>This is my template</b>
+        {{test}}
+    </div>
+    </script>
+    
+  </body>
+  </html>
