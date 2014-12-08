@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="App">
+  <head>
+      
+    <title>My Angular App  -  5 - 1 Directives</title>
+      
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="app.js"></script>
+      
+  </head>
+    
+  <body>
+      <header class="one" ng-controller="login-feature" >
+      <h3>Deep Dive into Directives</h3>
+      <app-login ng-controller="login-user" >  </app-login>
+      </header>
+        
+      <div class="main" ng-controller="main-controller">
+      <app-aside class="two"> </app-aside>
+      <app-body class="three">  </app-body>
+      <app-footer class="four" >   </app-footer>
+      </div>
+      
+
+      
+      
+      
+   
+    <script type="text/ng-template" id="Body.html">
+        <div ng-controller="content">{{test}} {[buddy}}</div>
+    </script>
+  
+    <script type="text/ng-template" id="Footer.html">
+        <div ng-controller="content">{{test}} {[buddy}}</div>
+    </script>
+            
+    <script type="text/ng-template" id="Aside.html">
+        <div ng-controller="content">{{test}} {[buddy}}
+        
+        <div on-hover>asdf</div>
+        
+        </div>
+    </script>
+      
+    <script type="text/ng-template" id="Login.html">
+        <div >
+        <input type='text' placeholder='username'></input>
+        <input type='text' placeholder='password'></input>
+        <button on-hover class="button" ></button>
+        </div>   
+    </script>
+
+      
+      
+  </body>
+  </html>

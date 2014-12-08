@@ -102,6 +102,16 @@ app.controller('cntrlTen', function($scope, myTest){
     
 });
 
+app.controller('cntrlEleven', function($scope){
+    $scope.test = "TODO: Decorates";
+});
+
+app.controller('cntrlTwelve', ['$scope', 'myFactory', function(a, b){
+    //Use this version to protect from minification.
+    a.test = b.nameValue;
+}])
+
+
 //***********************
 // Services
 //***********************
@@ -127,6 +137,14 @@ app.factory('findPerson', function(){
         }
     };
 });
+
+app.factory('myFactory', function(){
+    var name = "Drew Prescott";
+    return {
+        nameValue: name
+    }
+});
+
 //Factories can hold private and public data for the browser. You can 
 //pass in functions, objects and anything else, though it must return a //value.
 //Can also protect values if not returend. Denying them access.
@@ -156,6 +174,7 @@ app.provider('myTest',function(){
         }
     }
 });
+
 app.config(function(myTestProvider){
             myTestProvider.changeMsg('new message');
             });
@@ -171,4 +190,42 @@ app.filter('change', function(){
    return function(input) {
     return input + " Prescott";
   };
+});
+
+
+//***********************
+// Decorates
+//***********************
+// Demo Data
+
+app.controller('cntrlThirteen', ['$scope', 'dirFactory', function(thing, factory){
+    thing.val = factory.getName();
+    
+    thing.change = function(val){
+        factory.setName(val);
+        thing.val = factory.getName();
+    };
+    
+    
+    
+    
+}]);
+
+app.factory('dirFactory', function(){
+    var names = "Drew Prescott";
+    return {
+        getName: function(){return currentName;},
+        setName: function(val){return currentName = val;}
+    };
+});
+
+app.directive('myImage', function(){
+    return {
+        restrict: 'EA',
+        //EA - use as element or attr
+        templateUrl: 'newTemp.html',
+        //templateUrl to refernece to outside source
+        replace: false,
+        //true: replace elment that stuff embeds into, false, keep current elm and insert in to
+    }
 });
