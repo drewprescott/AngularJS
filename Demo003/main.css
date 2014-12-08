@@ -1,14 +1,25 @@
 body {
-background: #f8f8f8;
+background: #EDEDED;
 padding: 1em 1em 1em 1em;
+}
+
+.left {float: left; width: 400px;}
+
+.login {
+    border: 1px;
+    width: 150px;
+    margin-top: 25px;
 }
 
 .one {
     width: 800px;
     height: 100px;
-    background: #cccccc;
+    background: #266D7D;
     margin: auto auto;
+    border-bottom: 4px solid #0C375B;
 }
+
+.one h3 { color: white; margin-left: 1em;}
 
 .main {
     overflow: hidden;

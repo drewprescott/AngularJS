@@ -8,52 +8,38 @@
     <link rel="stylesheet" href="main.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script src="app.js"></script>
+    <!-- TODO: Build a grunt or gulp watch --->
+    <script src="app.js"></script> 
+    <script src="login/loginDirective.js"></script>
+    <script src="footer/footerDirective.js"></script>
+    <script src="body/bodyDirective.js"></script>
+    <script src="aside/asideDirective.js"></script>
+    <script src="directives/hoverDirective.js"></script>
+    <!-- TODO: Build a grunt or gulp watch --->
+      
       
   </head>
     
   <body>
+      
+      <div class="main" ng-controller="main-controller">
+          
       <header class="one" ng-controller="login-feature" >
-      <h3>Deep Dive into Directives</h3>
-      <app-login ng-controller="login-user" >  </app-login>
+          
+          <div class="left">
+              <h3>Deep Dive into Directives</h3>
+          </div>
+          
+          <app-login ng-controller="login-user"/> </app-login>
+          
       </header>
         
-      <div class="main" ng-controller="main-controller">
       <app-aside class="two"> </app-aside>
-      <app-body class="three">  </app-body>
-      <app-footer class="four" >   </app-footer>
-      </div>
-      
-
-      
-      
-      
-   
-    <script type="text/ng-template" id="Body.html">
-        <div ng-controller="content">{{test}} {[buddy}}</div>
-    </script>
   
-    <script type="text/ng-template" id="Footer.html">
-        <div ng-controller="content">{{test}} {[buddy}}</div>
-    </script>
-            
-    <script type="text/ng-template" id="Aside.html">
-        <div ng-controller="content">{{test}} {[buddy}}
-        
-        <div on-hover>asdf</div>
-        
-        </div>
-    </script>
-      
-    <script type="text/ng-template" id="Login.html">
-        <div >
-        <input type='text' placeholder='username'></input>
-        <input type='text' placeholder='password'></input>
-        <button on-hover class="button" ></button>
-        </div>   
-    </script>
+      <app-body class="three" test="{{wow}}">  </app-body>
 
-      
-      
+      <app-footer class="four" >   </app-footer>
+          
+      </div>
   </body>
   </html>
